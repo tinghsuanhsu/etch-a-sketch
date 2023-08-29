@@ -5,6 +5,11 @@
 
 const container = document.querySelector('.grid-container');
 let colour = 'blue'
+let size = 15
+const colorSelected = document.querySelector('#colorSelected')
+
+
+
 function makeRows(rows, cols) {
   container.style.setProperty('--grid-rows', rows);
   container.style.setProperty('--grid-cols', cols);
@@ -17,11 +22,17 @@ function makeRows(rows, cols) {
 };
 
 
-makeRows(25, 25);
+
 function setGridItemColour() {
     console.log('hi')
 }
+const gridSize = document.querySelector('#gridSize')
 
+gridSize.addEventListener('change', function(e) {
+    size = e.target.value;
+})
+
+makeRows(size, size);
 const gridItems = document.querySelectorAll('.grid-item')
 
 gridItems.forEach(item => item.addEventListener('mouseover', function(e) {
@@ -30,18 +41,27 @@ gridItems.forEach(item => item.addEventListener('mouseover', function(e) {
 }))
 
 
+colorSelected.addEventListener('change', function(e) {
+    colour = e.target.value
+    console.log(e.target.value)
+})
+
 function clearSketch() {
     const girdItems = document.getElementsByClassName('grid-item')
     for (let i=0; i < girdItems.length; i++) {
         gridItems[i].style.background = 'white'
     }
-    
 }
+
+// let root = document.documentElement;
+// console.log(colorSelected)
+
 
 // TODO 
 // reset the colour 
 const clearButton = document.querySelector('#clear-btn')
 clearButton.addEventListener('click', clearSketch)
+
 
 
 // make makeRows dynamic
