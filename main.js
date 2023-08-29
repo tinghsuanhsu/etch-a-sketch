@@ -16,8 +16,8 @@ function makeRows(rows, cols) {
   };
 };
 
-makeRows(16, 16);
 
+makeRows(25, 25);
 function setGridItemColour() {
     console.log('hi')
 }
@@ -27,6 +27,22 @@ const gridItems = document.querySelectorAll('.grid-item')
 gridItems.forEach(item => item.addEventListener('mouseover', function(e) {
     const sketch = document.getElementById(e.target.id)
     sketch.style.background = colour
-} ))
+}))
 
-// item.style.setProperty('--grid-item-background', colour)
+
+function clearSketch() {
+    const girdItems = document.getElementsByClassName('grid-item')
+    for (let i=0; i < girdItems.length; i++) {
+        gridItems[i].style.background = 'white'
+    }
+    
+}
+
+// TODO 
+// reset the colour 
+const clearButton = document.querySelector('#clear-btn')
+clearButton.addEventListener('click', clearSketch)
+
+
+// make makeRows dynamic
+// make background colour dynamic
