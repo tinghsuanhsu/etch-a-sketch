@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <title>Etch A Sketch</title>
 
 </head>
@@ -12,9 +13,14 @@
         <h1 class="title">Etch a Sketch</h1>
     </div>
     <div class="button-container">
-        <span><button id="clear-btn">Clear</button></span>
-        <span><button id="colour-btn">Change Colour</button></span>
-        <span><button id="colour-btn">Change Grid Size</button></span>
+        <span><button class="button" id="clear-btn">Clear</button></span>
+        <span>
+            <button class="button" id="color-picker-btn"><label for="colorPicker"><i class="fa-solid fa-eye-dropper"></i>Change Colour<input type="color" name="colorSelected" id="colorSelected"></input></label>
+        </span>
+        <span><button class="button" id="change-grid-btn"><label for="colorPicker"></label>Change Grid Size
+            <input type="range" name="gridSize" id="gridSize" max="30" min="5" value="15" oninput="rangeValue.innerText = this.value">
+            <p id="rangeValue">15</p></input></label></button>
+        </span>
 
     </div>
     <div class="grid-container"></div>
