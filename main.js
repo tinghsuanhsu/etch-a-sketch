@@ -6,8 +6,6 @@
 const container = document.querySelector('.grid-container');
 let colour = 'blue'
 let size = 15
-const colorSelected = document.querySelector('#colorSelected')
-
 
 
 function makeRows(rows, cols) {
@@ -26,32 +24,47 @@ function makeRows(rows, cols) {
 function setGridItemColour() {
     console.log('hi')
 }
-const gridSize = document.querySelector('#gridSize')
 
-gridSize.addEventListener('change', function(e) {
-    size = e.target.value;
-})
+function changeGridSize() {
+    const gridSize = document.querySelector('#gridSize')
+    gridSize.addEventListener('change', function(e) {
+        size = e.target.value;
+    })
+}
 
-makeRows(size, size);
-const gridItems = document.querySelectorAll('.grid-item')
+function sketch() {
+    const gridItems = document.querySelectorAll('.grid-item')
+    gridItems.forEach(item => item.addEventListener('mouseover', function(e) {
+        const sketch = document.getElementById(e.target.id)
 
-gridItems.forEach(item => item.addEventListener('mouseover', function(e) {
-    const sketch = document.getElementById(e.target.id)
-    sketch.style.background = colour
-}))
+        sketch.style.background = colour
+        console.log(colour)
+    }))
+}
 
-
-colorSelected.addEventListener('change', function(e) {
-    colour = e.target.value
-    console.log(e.target.value)
-})
+function changeColour() {
+    const colorSelected = document.querySelector('#colorSelected')
+    colorSelected.addEventListener('change', function(e) {
+        colour = e.target.value
+    })
+    
+}
 
 function clearSketch() {
     const girdItems = document.getElementsByClassName('grid-item')
     for (let i=0; i < girdItems.length; i++) {
-        gridItems[i].style.background = 'white'
+        girdItems[i].style.background = 'white'
     }
 }
+
+function eraseSketch() {
+    const gridItems = document.querySelectorAll('.grid-item')
+    gridItems.forEach(item => item.addEventListener('mouseover', function(e) {
+        const sketch = document.getElementById(e.target.id)
+        sketch.style.background = 'white'
+    }))
+}
+
 
 // let root = document.documentElement;
 // console.log(colorSelected)
@@ -59,10 +72,22 @@ function clearSketch() {
 
 // TODO 
 // reset the colour 
+
+
+makeRows(size, size);
+sketch()
 const clearButton = document.querySelector('#clear-btn')
 clearButton.addEventListener('click', clearSketch)
 
+const eraserButton = document.querySelector('#eraser-btn')
+eraserButton.addEventListener('click', eraseSketch)
 
+const changeButton = document.querySelector('#color-picker-btn')
+changeButton.addEventListener('click', changeColour)
 
+const drawButton = document.querySelector('#sketch-btn')
+drawButton.addEventListener('click', sketch)
+
+console.log(colour)
 // make makeRows dynamic
 // make background colour dynamic
