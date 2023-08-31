@@ -13,15 +13,23 @@
         <h1 class="title">Etch a Sketch</h1>
     </div>
     <div class="button-container">
-        <span><button class="button" id="clear-btn">Clear</button></span>
         <span>
-            <button class="button" id="color-picker-btn"><label for="colorPicker"><i class="fa-solid fa-eye-dropper"></i>Change Colour<input type="color" name="colorSelected" id="colorSelected"></input></label>
+            <button class="button" id="reset-btn" href="#" onclick="show('popup')">Reset</button>
+            <!-- This is what will be included inside the popup -->
+
         </span>
         <span>
-            <button class="button" id="change-grid-btn"><label for="colorPicker"></label>Change Grid Size
-            <input type="range" name="gridSize" id="gridSize" max="30" min="5" value="15" oninput="rangeValue.innerText = this.value">
-            <p id="rangeValue">15</p></input></label></button>
+            <button class="button" id="clear-btn">Clear</button></span>
+        <span>
+            <button class="button" id="color-picker-btn">
+                <label for="colorPicker">
+                    <i class="fa-solid fa-eye-dropper"></i>Change Colour
+                <input type="color" name="colorSelected" id="colorSelected">
+                </input>
+                </label>
+            </button>
         </span>
+       
         <span>
             <button class="button" id="sketch-btn"><label for="sketch"></label>Draw</button>
         </span>
@@ -29,6 +37,17 @@
             <button class="button" id="eraser-btn"><label for="eraser"></label>Eraser</button>
         </span>
 
+    </div>
+    <div class="popup" id="popup">
+        <p>Enter a size:</p>
+        <label for="changeGrid">
+            <input type="range" name="gridSize" id="gridSize" max="100" min="5" value="15" oninput="rangeValue.innerText = this.value">
+            <p id="rangeValue">15</p>
+            </input>
+        </label>
+        
+        <button class="button" id="apply-gird-change-btn" onclick="hide('popup')">Apply</button>
+        <!-- <a href="#" onclick="hide('popup')">Close</a> -->
     </div>
     <div class="grid-container"></div>
 </body>
