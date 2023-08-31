@@ -1,6 +1,7 @@
 :root {
     --grid-cols: 1;
     --grid-rows: 1;
+    --grid-item-background: white;
   }
 
 
@@ -10,15 +11,32 @@ body {
     align-items: center;
     margin: auto;
     place-items: center;
-    /* margin-top: 100px; */
 
 }
 
+h1 {
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+span {
+    display: flex;
+    /* justify-content: space-between; */
+}
+
 .title-container {
+    margin-top: 200px;
     display: flex;
     justify-content: center;
     align-items: center;
-    /* position: absolute; */
+    width: 100%;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 50px;
+    width: 100%;
 }
 
 .grid-container {
@@ -28,6 +46,7 @@ body {
     grid-template-columns: repeat(var(--grid-cols), 1fr);
     aspect-ratio: 1/1;
     margin: auto;
+    border: 1px solid black;
 
   }
   
@@ -36,5 +55,115 @@ body {
     border: 0.5px solid black;
     text-align: center;
     margin: 0;
-    background: blue;
+    background: var(--grid-item-background);
 }
+
+/* button {
+  color: black;
+  font-size: 20px;
+  font-family: helvetica;
+  text-decoration: none;
+  border: 2px solid black;
+  border-radius: 20px;
+  transition-duration: .2s;
+  -webkit-transition-duration: .2s;
+  -moz-transition-duration: .2s;
+  background-color: white;
+  padding: 4px 30px;
+}
+
+button:hover {
+    color: white;
+    background-color: black;
+    transition-duration: .2s;
+    -webkit-transition-duration: .2s;
+    -moz-transition-duration: .2s;
+  } */
+
+
+/* CSS */
+..button {
+  align-items: center;
+  background-color: white;
+  border: 0;
+  border-radius: 100px;
+  border-color: grey;
+  box-sizing: border-box;
+  color: black;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: -apple-system, system-ui, system-ui, "Segoe UI", Roboto, "Helvetica Neue", "Fira Sans", Ubuntu, Oxygen, "Oxygen Sans", Cantarell, "Droid Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 20px;
+  max-width: 480px;
+  min-height: 40px;
+  min-width: 0px;
+  overflow: hidden;
+  padding: 0px;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: center;
+  touch-action: manipulation;
+  transition: background-color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, box-shadow 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+}
+
+.button:hover,
+.button:focus { 
+  background-color: white;
+  color: black;
+
+}
+
+.button:active {
+  background: #09223b;
+  color: rgb(255, 255, 255, .7);
+}
+
+.button:disabled { 
+  cursor: not-allowed;
+  background: rgba(0, 0, 0, .08);
+  color: rgba(0, 0, 0, .3);
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    padding: 10px;
+    width: 280px;
+    left: 50%;
+    margin-left: -150px;
+    height: 180px;
+    top: 50%;
+    margin-top: -100px;
+    background: #FFF;
+    border: 3px solid #F04A49;
+    z-index: 20;
+  }
+  
+  #popup:after {
+    position: fixed;
+    content: "";
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: -2;
+  }
+  
+  #popup:before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: #FFF;
+    z-index: -1;
+  }
+  
