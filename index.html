@@ -10,11 +10,11 @@
 </head>
 <body>
     <div class="title-contiainer">
-        <h1 class="title">Etch a Sketch</h1>
+        <h1 class="title">Etch-a-Sketch</h1>
     </div>
     <div class="button-container">
         <span>
-            <button class="button" id="reset-btn" href="#" onclick="show('popup')">Reset</button>
+            <button class="button" id="reset-btn" href="#">Reset</button>
             <!-- This is what will be included inside the popup -->
 
         </span>
@@ -29,24 +29,26 @@
                 </label>
             </button>
         </span>
-       
         <span>
-            <button class="button" id="sketch-btn"><label for="sketch"></label>Draw</button>
+            <button class="button" id="random-colour-btn">Random Colour</button>
         </span>
         <span>
-            <button class="button" id="eraser-btn"><label for="eraser"></label>Eraser</button>
+            <button class="button" id="sketch-btn">Draw</button>
+        </span>
+        <span>
+            <button class="button" id="eraser-btn">Eraser</button>
         </span>
 
     </div>
     <div class="popup" id="popup">
         <p>Enter a size:</p>
         <label for="changeGrid">
-            <input type="range" name="gridSize" id="gridSize" max="100" min="5" value="15" oninput="rangeValue.innerText = this.value">
+            <input type="range" name="gridSize" id="resetGridSize" max="100" min="5" value="15" oninput="rangeValue.innerText = this.value">
             <p id="rangeValue">15</p>
             </input>
         </label>
         
-        <button class="button" id="apply-gird-change-btn" onclick="hide('popup')">Apply</button>
+        <button class="button" id="apply-gird-change-btn">Apply</button>
         <!-- <a href="#" onclick="hide('popup')">Close</a> -->
     </div>
     <div class="grid-container"></div>
