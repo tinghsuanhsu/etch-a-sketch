@@ -39,6 +39,7 @@ span {
     width: 120%;
     margin: 1rem 0 0 0 ;
     object-fit: cover;
+    width: 100%;
 }
 
 .grid-container {
@@ -48,15 +49,14 @@ span {
     grid-template-columns: repeat(var(--grid-cols), auto);
     aspect-ratio: 1/1;
     margin: 1rem 0 0 0 ;
-    border: 1px solid lightgrey;
+    border: 3px solid lightgray;
     width: 550px;
     height: 550px;
-    overflow: hidden;
 
   }
   
 .grid-item {
-    border: 0.5px solid black;
+    border: 0.5px solid lightgray;
     text-align: center;
     margin: 0;
     background: var(--grid-item-background);
@@ -182,4 +182,9 @@ outline: 1px transparent;
     right: 0;
     background: #FFF;
     z-index: -1;
+}
+
+#resetGridSize {
+    background-color: green;
+
 }
