@@ -93,7 +93,6 @@ function changeColour() {
     colorSelected.addEventListener('change', function(e) {
         colour = e.target.value;
     })
-    console.log('changecolour: ', colour)
     return colour
 }
 
@@ -127,34 +126,17 @@ function sketch() {
     const gridItems = document.getElementsByClassName('grid-item');
     [...gridItems].forEach(item => item.addEventListener('mouseover', function() {
         item.style.background = colour;
-        console.log(item)
-        console.log(colour)
         })
     )
 }    
 // function to clear the sketch
 function clearSketch() {
-    
     const girdItems = document.getElementsByClassName('grid-item');
     for (let i=0; i < girdItems.length; i++) {
         girdItems[i].style.background = 'white';
     }
-    
 }
 
-
-// function to erase the drawing one cell by one cell 
-function eraseSketch() {    
-    const gridItems = document.getElementsByClassName('grid-item');
-
-    [...gridItems].forEach(item => {
-        item.style.background = 'white';
-        item.removeEventListener('mouseleave', deactiveButton)
-    })
-    
-    isActiveButton = false;
-    
-}
 
 function deactiveButton() {
     isActiveButton = false;
