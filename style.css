@@ -1,13 +1,24 @@
-* {
-    font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
 
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+
+* {
+    font-family: 'Roboto', Arial;
 }
+
+
 :root {
     --grid-cols: 15;
     --grid-rows: 15;
     --grid-item-background: white;
-  }
+    --font-colour: #00c7ec;
+    --border-colour: #00c7ec;
+}
 
+html {
+    background: rgb(2,0,36);
+    background: linear-gradient(153deg, rgba(2,0,36,1) 0%, rgba(1,1,105,1) 60%, rgba(0,49,55,1) 100%);
+    height: 100%;
+}
 
 body {
     display: grid;
@@ -16,19 +27,34 @@ body {
     margin: auto;
     place-items: center;
     width: 100%;
+}
 
+footer {
+    color: rgb(229, 229, 229);
+    font-size: .5rem;
+    margin: 1rem auto;
+    display: block;
+}
+
+h1 {
+    color: var(--font-colour);
+    text-shadow:  0 0 1rem rgb(1, 73, 92), 0 0 .5rem rgb(212, 212, 212), 0 0 .5rem black;
+    font-size: 2.5rem;
+    margin: 1rem;
 }
 
 span {
     display: flex;
+    background-color: none;
 }
 
 .title-container {
-    margin: 3rem 0 0 0;
+    margin: 1rem 0 0 0;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
+
 }
 
 .button-container {
@@ -40,6 +66,7 @@ span {
     margin: 1rem 0 0 0 ;
     object-fit: cover;
     width: 100%;
+    background-color: none;
 }
 
 .grid-container {
@@ -49,95 +76,49 @@ span {
     grid-template-columns: repeat(var(--grid-cols), auto);
     aspect-ratio: 1/1;
     margin: 1rem 0 0 0 ;
-    border: 3px solid lightgray;
-    width: 550px;
-    height: 550px;
+    border: 10px solid lightgray;
+    width: 500px;
+    height: 500px;
 
   }
   
 .grid-item {
-    border: 0.5px solid lightgray;
+    border: 0.5px solid white;
     text-align: center;
     margin: 0;
     background: var(--grid-item-background);
     display: flex;
 }
 
-/* button {
-  color: black;
-  font-size: 20px;
-  font-family: helvetica;
-  text-decoration: none;
-  border: 2px solid black;
-  border-radius: 20px;
-  transition-duration: .2s;
-  -webkit-transition-duration: .2s;
-  -moz-transition-duration: .2s;
-  background-color: white;
-  padding: 4px 30px;
-}
-
-button:hover {
-    color: white;
-    background-color: black;
-    transition-duration: .2s;
-    -webkit-transition-duration: .2s;
-    -moz-transition-duration: .2s;
-  } */
-
-  
-/* CSS */
 .button {
-    appearance: none;
-    background-color: #FAFBFC;
-    border: 1px solid rgba(27, 31, 35, 0.15);
-    border-radius: 25px;
-    box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+    transition: 0.25s;
+    background-color: transparent;
+    border: 1px solid var(--border-colour);
+    text-decoration: none;
+    color: var(--font-colour);
+    border-radius: 5px;
     box-sizing: border-box;
-    color: #24292E;
     cursor: pointer;
     display: inline-block;
-    font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    text-align: center;
     font-size: 12px;
-    font-weight: 500;
-    line-height: 20px;
-    list-style: none;
+    font-weight: 1000;
+    line-height: 1.5rem;
     padding: 6px 16px;
     position: relative;
-    transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
     vertical-align: middle;
     white-space: nowrap;
-    word-wrap: break-word;
+    word-wrap: break-word; 
+    vertical-align: center;
+    align-items: center;
 }
 
-.button:hover {
-    background-color: #F3F4F6;
-    text-decoration: none;
-    transition-duration: 0.1s;
-}
-
-.button:disabled {
-    background-color: #FAFBFC;
-    border-color: rgba(27, 31, 35, 0.15);
-    color: #959DA5;
-    cursor: default;
-}
-
-.button:active {
-    background-color: #EDEFF2;
-    box-shadow: rgba(225, 228, 232, 0.2) 0 1px 0 inset;
-    transition: none 0s;
-}
-
-.button:focus {
-outline: 1px transparent;
-}
-
-.button:before {
-    display: none;
+.button:hover, focus {
+    box-shadow: 0 0.5em 0.5em -0.4em white;
+    transform: translateY(-0.25em);
 }
 
 .button:-webkit-details-marker {
@@ -146,7 +127,7 @@ outline: 1px transparent;
 
 .popup {
     display: none;
-    border-radius: 20px;
+    border-radius: 15px;
     position: fixed;
     padding: 10px;
     width: 280px;
@@ -156,7 +137,8 @@ outline: 1px transparent;
     top: 50%;
     margin-top: -100px;
     background: #FFF;
-    border: 3px solid #003968;
+    color: var(--font-colour);
+    border: 0;
     z-index: 20;
 }
   
@@ -168,6 +150,8 @@ outline: 1px transparent;
     left: 0;
     bottom: 0;
     right: 0;
+    color: var(--font-colour);
+    text-shadow: 0 0.5em 0.5em -0.4em white;
     background: rgba(0,0,0,0.5);
     z-index: -2;
 }
@@ -180,11 +164,34 @@ outline: 1px transparent;
     left: 0;
     bottom: 0;
     right: 0;
-    background: #FFF;
+    color: var(--font-colour);
+    background: rgb(1, 17, 34);
+    box-shadow: 0 0 .5em .3em #F3F4F6;
+    border: 0;
     z-index: -1;
 }
 
-#resetGridSize {
-    background-color: green;
+p {
+    color: var(--font-colour);
+    text-shadow: 0 0.5em 0.5em -0.4em white;
 
+}
+
+input[type="range"] {
+    accent-color: var(--border-colour);
+
+  }
+
+
+#colorSelected {
+    width: 1.6em;
+    height: 1.7em;
+    position: relative;
+    text-align: center;
+    background: transparent;
+    border: none;    
+  }
+
+label {
+    position: relative;
 }
